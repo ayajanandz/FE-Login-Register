@@ -1,14 +1,22 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Loadmovie = () => {
-
+    const navigate = useNavigate();
+    let isauth = localStorage.getItem("login");
     const [data, setData] = useState([])
     useEffect(() => {
+        if(isauth==="true"){
         axios.get('http://localhost:8000/test?category=movies')
         .then(res=> setData(res.data))
         .catch(err => console.log(err));
+        }
+        else {
+            alert('Oops you are logged out');
+            navigate('/login');
+        }
     }, [])
 
     const[searchTerm, setsearchTerm] = useState("");

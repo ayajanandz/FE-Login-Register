@@ -27,7 +27,7 @@ const Navbar =() => {
                         </li>
 
                         <li>
-                            <a href ='#'>About</a>
+                            <a href ='http://localhost:3001/' target='blank'>About</a>
                         </li>
 
                         <li>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './homepage.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,12 +9,18 @@ import Button from '@mui/material/Button';
  
 
 
-const Homepage =() => {
+const Homepage =(props) => {
     const navigate = useNavigate()
-    
+    let isauth = localStorage.getItem("login");
+
+    const setFalse = () =>{
+        localStorage.setItem("login", false);
+        navigate('/login');
+    }
+    if(isauth==="true"){
     return(
         <>
-        <Button variant="contained" onClick={() => navigate("/login")} className='diffBtn'>Logout</Button>
+        <Button variant="contained" onClick={() =>setFalse() } className='diffBtn'>Logout</Button>
         <div className='homepage'>
        
        
@@ -39,7 +45,16 @@ const Homepage =() => {
         </div>
         </>
         
+    )}
+    else{ return(
+        <>
+        <div>
+            Oops seems like you are logged out. Login to view this page
+        </div>
+        <Button variant="contained" onClick={() =>setFalse() } className='diffBtn'>Log Me In</Button>
+    </>
     )
+    }
 }
 
 export default Homepage;

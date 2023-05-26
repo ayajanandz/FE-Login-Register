@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Loadbook = () => {
-
+    let isauth = localStorage.getItem('login');
+    const navigate = useNavigate();
+    
     const [data, setData] = useState([])
     useEffect(() => {
+        
         axios.get('http://localhost:8000/test?category=books')
         .then(res=> setData(res.data))
         .catch(err => console.log(err));
+        
+        
+        
     }, [])
 
     const[searchTerm, setsearchTerm] = useState("");
-    return (
+    if(isauth==="true"){
+    return ( 
+        
+        <>
+        
         <div className='container'>
             {/* <div className='mt-3'> */}
             <input type='text' placeholder='Search...' style={{marginTop:50, marginBottom:20, width:"40%", height:30, fontSize:20}}
@@ -55,6 +66,21 @@ const Loadbook = () => {
                 </table>
             {/* </div> */}
         </div>
-    )
+        </>
+    )}
+    else{
+        return(
+            <>
+            <div>
+                Oops..seems like you are logged out. Log in to view the page.
+            </div>
+            <button onClick={() => navigate('/login')}>
+                Log Me In
+            </button>
+            </>
+        )
+        
+    }
+                    
 }
 export default Loadbook;
