@@ -8,10 +8,12 @@
     padding: 1rem;
     align-items: center;
     text-align: center;
+    margin: auto;
+    margin-top: 10%;
 }
 
 .login > input {
-    border-radius: 8px;
+    border-radius: 25px;
     border: 2px solid #dddfe2;
     outline: none;
     color: #1d2129;
@@ -22,18 +24,15 @@
 }
 
 .login> .button {
-    background:#37127a;
+    background:#477051;
+    
     border: 1px solid #1877f2;
     color: #f5f1f1;
     font-size: 2.00rem;
     padding: 0.5rem;
     margin: 0.5rem;
-    border-radius: 8px;
+    border-radius: 20px;
     outline: none;
     cursor: pointer;
 
-}
-.App> {
-    display: grid;
-    justify-content: center;
 }
