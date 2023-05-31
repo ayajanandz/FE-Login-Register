@@ -40,7 +40,7 @@ li {
   height: 8rem;
   display: grid;
   grid-template-columns: 8rem 1fr 2fr 1fr 8rem;
-  background-color: rgb(202, 152, 108); 
+  background-color: darkgrey; 
   
   
 }

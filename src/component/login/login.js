@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Login = () => {
+  let userName="";
   const navigate = useNavigate();
   const [valid, isValid] = useState("false");
   const [user, setUser] = useState({
@@ -21,13 +22,16 @@ const Login = () => {
 
   const logincheck = async () => {
     try {
-      console.log("user", user);
+      
       let response = await axios.post("http://localhost:8000/login", user);
-      //console.log("response", response.data);
+     
 
       if (response && response.data.body._id) {
         isValid("true");
         localStorage.setItem("login", true);
+         userName = response.data.body.Name;
+      
+        localStorage.setItem("UserName:", userName);
       } else {
         alert("Invalid Credentials");
       }
@@ -39,9 +43,9 @@ const Login = () => {
   
   let login = "";
   useEffect(() => {
-    //console.log("Current value of valid is ", valid);
+  
     login = localStorage.getItem("login");
-    //console.log(localStorage.getItem("login"));
+    
     if (login === "true") {
       navigate("/homepage");
     } else {
@@ -51,6 +55,9 @@ const Login = () => {
 
   return (
     <>
+    
+      
+      
       <div className="login">
         <h1>Login</h1>
         <input
@@ -79,6 +86,8 @@ const Login = () => {
           Register
         </div>
       </div>
+    
+      
     </>
   );
 };

@@ -8,20 +8,15 @@
     height: 50vh;
     border-radius: 20px;
     box-shadow: 0 0 15px 5px grey;
-    background: rgb(203, 207, 152);
+    background: rgb(108, 211, 208);
     position: relative;
-    color:rgb(85, 13, 61)
+    color:rgb(85, 13, 61);
+    margin: auto;
+    
 }
 
-
-
-
-/* .homepage > .txt{
-    vertical-align: top;
-} */
-
 .homepage > .button {
-    position:absolute;
+    position:relative;
     bottom:0px;
     background: #1877f2;
     border: 1px solid #1877f2;
@@ -32,21 +27,13 @@
     border-radius: 8px;
     outline: none;
     cursor: pointer;
-}
-.App> .diffBtn{
-    /* display: block; */
-    position: absolute;
-    top:110px;
-    font-size: 15px;
-    right: 10px;
-}
-/* .homepage> .diffBtn{
-    position: absolute;
-    top: 10px;
-    font-size: 15px;
-    right:10px;
-} */
+    justify-content: right;
 
+}
+.diffBtn{
+    
+    font-size: 100px;
+}
 
 
  .homepage> .btn_div > .btn_mov{
@@ -68,4 +55,33 @@
     margin-top: 25px;
     cursor: pointer;
 }
+  .homepage >.img {
+    height:max-content;
+    width:max-content;
+    /* background-image:url(../images.jpeg) ; */
+ }
+.homepage> .hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    transition: opacity 1s ease-in-out;
+  
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+  }
+  .homepage> .searchbox{
+    font-size: 40px;
 
+  }
+
+  .outlined_basic{
+    font-size: 40px;
+  }

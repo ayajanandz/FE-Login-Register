@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import navbar from './navbar.css';
 import { FaInstagramSquare, FaYoutubeSquare, FaGithubSquare, FaLinkedinIn } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
-
+import Landing from '../landing/landing';
+import { useNavigate } from "react-router-dom";
 
 const Navbar =() => {
+    const navigate = useNavigate();
     const [showMediaIcons, setShowMediaIcons] =  useState(false);
     return(
         <>
@@ -23,7 +25,7 @@ const Navbar =() => {
                 <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
                     <ul>
                         <li>
-                            <a href ='#'>Home</a>
+                            <a href="/" onClick={() => navigate('/')} >Home</a>
                         </li>
 
                         <li>
